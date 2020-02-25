@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img {
+        width: 200px;
+        height: 300px;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 200px;
+        height: 50px;
+    }
+</style>
+
+<body>
+    <img id="TV" src="images/image1.jpg">
+    <button onclick="mode1()">start</button>
+    <button onclick="mode2()">stop</button>
+    <script>
+
+        var time = null;
+        var img = ["images/image1.jpg", "images/image2.jpg", "images/image3.jpg"];
+        var pos = 0;
+
+        function show_images() {
+            if (pos >= img.length)
+                pos = 0;
+            document.getElementById("TV").src = img[pos];
+            pos++;
+        }
+
+        function mode1() { 
+        clearInterval(time);
+        time = setInterval("show_images()", 1000);
+        }
+        function mode2() {
+                clearInterval(time);
+        }
+
+    </script>
+
+</body>
+
+</html>
